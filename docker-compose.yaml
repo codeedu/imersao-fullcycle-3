@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  app:
+    container_name: appbank
+    build: .
+    ports:
+      - "50052:50051"
+    volumes:
+      - .:/go/src/
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+
+  db:
+    image: postgres:9.4
+    restart: always
+    tty: true
+    volumes:
+      - .pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=codebank
+    ports:
+      - "5432:5432"
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    tty: true
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@user.com
+      - PGADMIN_DEFAULT_PASSWORD=123456
+    ports:
+      - "9000:80"
+    depends_on:
+      - db
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
