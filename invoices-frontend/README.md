@@ -1,8 +1,12 @@
-# Imersão Full Stack & FullCycle 3.0 - Codebank
+![Next.js](../img/nextjs.png)
+
+# Imersão Full Stack & FullCycle 3.0 - Codebank - Front-end das faturas
 
 ## Descrição
 
-Repositório do Apache Kafka
+Repositório do front-end das faturas (Code Invoice) feito com Next.js
+
+**Importante**: A aplicação do Apache Kafka, Golang (codebank), back-end dos invoices deve estar rodando primeiro.
 
 ## Rodar a aplicação
 
@@ -23,7 +27,7 @@ Execute os comandos:
 docker-compose up
 ```
 
-Quando parar os containers do Kafka, lembre-se antes de rodar o `docker-compose up`, rodar o `docker-compose down` para limpar o armazenamento, senão lançará erro ao subir novamente.
+Acessar http://localhost:3002/credit-cards.
 
 ### Para Windows 
 

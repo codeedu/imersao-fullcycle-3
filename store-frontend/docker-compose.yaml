@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    entrypoint: ./.docker/entrypoint.sh
+    container_name: imersao-fullcycle-3-store-frontend-app
+    ports:
+      - 3001:3000
+    volumes:
+      - .:/home/node/app
+    extra_hosts: 
+      - 'host.docker.internal:172.17.0.1'

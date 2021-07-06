@@ -1,0 +1,72 @@
+GET http://localhost:3000/products
+
+###
+GET http://localhost:3000/products/11111
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "tv 32",
+    "description": "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. In elementis mé pra quem é amistosis quis leo. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis. Cevadis im ampola pa arma uma pindureta.",
+    "image_url": "https://images.unsplash.com/photo-1570831739435-6601aa3fa4fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjIzMzQ0NjY2&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit",
+    "price": 1500.99
+}
+
+###
+PATCH http://localhost:3000/products/fa1198b0-4a38-4f04-8845-8c88b91f28ec
+Content-Type: application/json
+
+{
+    "name": "tv 32 alterada",
+    "price": 1500.80
+}
+
+###
+DELETE http://localhost:3000/products/9806c04f-795a-4f28-9a2f-e5e7da08fe26
+
+## ORDERS ####
+
+###
+GET http://localhost:3000/orders
+
+###
+GET http://localhost:3000/orders/64be9c0d-0079-442b-8bd7-2de24c1cf322
+
+
+###
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+    "credit_card": {
+      "number": "1111111111111103",
+      "name": "Luiz carlos",
+      "expiration_month": 7,
+      "expiration_year": 2021,
+      "cvv": "123"
+    },
+       "items":  [
+      {
+          "quantity": 2, 
+          "product_id": "fa1198b0-4a38-4f04-8845-8c88b91f28ec"
+      }
+   ]
+}
+
+# {
+#    "credit_card": {
+#       "number": "1111111111111103",
+#       "name": "Luiz carlos",
+#       "expiration_month": 6,
+#       "expiration_year": 2021,
+#       "cvv": "123"
+#    },
+#    "items":  [
+#       {
+#           "quantity": 2, 
+#           "product_id": "8ea4791a-9534-4f45-b172-f22a7e2b90c3"
+#       }
+#    ]
+# }
