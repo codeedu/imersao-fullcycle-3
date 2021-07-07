@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    entrypoint: dockerize -wait tcp://db:5432 -timeout 40s ./.docker/entrypoint.sh
+    container_name: imersao-fullcycle-3-store-api-app
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/node/app
+    depends_on: 
+      - db
+    extra_hosts: 
+        - 'host.docker.internal:172.17.0.1'
+
+  db:
+    build: .docker/postgres
+    container_name: imersao-fullcycle-3-store-api-db
+    restart: always
+    tty: true
+    volumes:
+      - ./.docker/dbdata:/var/lib/postgresql/data
+    #   - ./.docker/postgres:/docker-entrypoint-initdb.d
+    #ports: 
+    #  - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=store
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: imersao-fullcycle-3-store-api-pgadmin
+    tty: true
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@user.com
+      - PGADMIN_DEFAULT_PASSWORD=123456
+    ports:
+      - 9000:80

@@ -1,8 +1,12 @@
-# Imersão Full Stack & FullCycle 3.0 - Codebank
+[<img src="../img/nestjs.svg" width="72"/>](Nest.js)
+
+# Imersão Full Stack & FullCycle 3.0 - Codebank - Back-end da loja
 
 ## Descrição
 
-Repositório do Apache Kafka
+Repositório do back-end das faturas (Code Invoice) feito com Nest.js
+
+**Importante**: A aplicação do Apache Kafka, Golang (codebank) deve estar rodando primeiro.
 
 ## Rodar a aplicação
 
@@ -23,7 +27,7 @@ Execute os comandos:
 docker-compose up
 ```
 
-Quando parar os containers do Kafka, lembre-se antes de rodar o `docker-compose up`, rodar o `docker-compose down` para limpar o armazenamento, senão lançará erro ao subir novamente.
+Acessar http://localhost:3002/credit-cards.
 
 ### Para Windows 
 
