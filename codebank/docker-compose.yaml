@@ -16,7 +16,7 @@ services:
     restart: always
     tty: true
     volumes:
-      - .pgdata:/var/lib/postgresql/data
+      - ../.pgdata:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=codebank
