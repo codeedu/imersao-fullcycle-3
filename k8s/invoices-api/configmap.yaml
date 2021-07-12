@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: invoice-api-conf
+data:
+  env: |
+    TYPEORM_CONNECTION=postgres
+    TYPEORM_HOST=postgres-postgresql
+    TYPEORM_USERNAME=postgres
+    TYPEORM_PASSWORD=qiD4JgDwl9
+    TYPEORM_DATABASE=invoice
+    TYPEORM_PORT=5432
+    TYPEORM_ENTITIES=dist/**/*.entity.js
+    TYPEORM_MIGRATIONS=dist/migrations/**/*.js
+    TYPEORM_ENTITIES_DIR=src
+    TYPEORM_MIGRATIONS_DIR=src/migrations
+    TZ="America/Sao_Paulo"
+    KAFKA_CLIENT_ID=codebank
+    KAFKA_HOST=pkc-ep9mm.us-east-2.aws.confluent.cloud:9092
+    KAFKA_CONSUMER_GROUP_ID=invoices
+    KAFKA_SASL_USERNAME=CVYQHWGU6Q24T45F
+    KAFKA_SASL_PASSWORD=Qg+90l9MaVzoRPG0Xd09Qi7dc73Jdz9Z3/5+5t/yQ/AG7sU5mG7QZDmZeXQWMrdd

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: invoice-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: invoice-api
+  template:
+    metadata:
+      labels:
+        app: invoice-api
+    spec:
+      containers:
+        - name: invoice-api
+          image: wesleywillians/imersao3-invoice-api:latest
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: invoice-api-volume
+              mountPath: /home/node/app/.env
+              subPath: .env
+      volumes:
+        - name: invoice-api-volume
+          configMap:
+            name: invoice-api-conf
+            items:
+              - key: env
+                path: .env
+          
+        

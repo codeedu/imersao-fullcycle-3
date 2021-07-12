@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: codebank
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: codebank
+  template:
+    metadata:
+      labels:
+        app: codebank
+    spec:
+      containers:
+        - name: codebank
+          image: wesleywillians/imersao3-codebank:latest
+
+          volumeMounts:
+            - name: codebank-volume
+              mountPath: /go/src/.env
+              subPath: .env
+          ports:
+            - containerPort: 50052
+              
+
+      volumes:
+        - name: codebank-volume
+          configMap:
+            name: codebank-conf
+            items:
+              - key: env
+                path: .env
+          
+        
